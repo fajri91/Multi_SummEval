@@ -1,0 +1,280 @@
+
+<script type='text/javascript'>
+window.onload = function() {
+  document.getElementById('submitButton').setAttribute('onclick', 'return validateForm()');
+  document.getElementById("submitButton").className = "flatButtonRight";
+  //document.getElementById("submitButton").disabled = true;
+}
+
+</script>
+<link href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.1/themes/redmond/jquery-ui.css" rel="stylesheet" />
+<p>
+<style type="text/css">td { line-height: 140%;}
+
+  *{
+    font-family:Arial;
+    font-size: large;
+  }
+
+  div {
+    line-height: 140%;
+  }
+
+    .SliderLabel {
+        float: left;
+        font-size:20px;
+        width:100px;
+        font-family:Arial
+    }
+
+  .ui-slider .ui-slider-handle {
+    height: 1.5em;
+    width: 0.9em;
+  }
+
+    #slider .tick {  position: absolute; height: 100%; font-size:0px; line-height: 8px; top:-1px; }
+
+  .flatButton {
+    display:inline-block;
+    cursor:pointer;
+    font-family:Arial;
+    font-size:17px;
+    font-weight:bold;
+    padding:14px 41px;
+    text-decoration:none;
+  }
+
+  .flatButtonRight {
+    display:inline-block;
+    cursor:pointer;
+    font-family:Arial;
+    font-size:17px;
+    font-weight:bold;
+    padding:14px 41px;
+    text-decoration:none;
+    float: right;
+  }
+</style>
+</p>
+<script type='text/javascript' src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js'> </script><script  type='text/javascript' src='https://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.1/jquery-ui.min.js'>  </script><script type='text/javascript' >
+
+    function shuffle (array) {
+      var i = 0
+      var j = 0
+      var temp = null
+
+      for (i = array.length - 1; i > 0; i -= 1) {
+        j = Math.floor(Math.random() * (i + 1))
+        temp = array[i]
+        array[i] = array[j]
+        array[j] = temp
+      }
+    }
+
+    var order = [];
+    for (var i = 0; i <100; ++i) order.push(i)
+
+    // this only gets done for segment-level - don't want them reshuffled for system level
+    shuffle(order)
+
+    var selectedValue = 0;
+
+    function save(){
+        alert(selectedValue);
+    }
+
+
+    $(function () {
+
+    $('#amount').val(selectedValue);
+
+    var slider = $("#slider").slider({
+
+            orientation: "horizontal",
+            min: 0,
+            max: 100,
+            value: 0,
+
+      slide: function (event, ui) {
+                $('#amount').val(ui.value);
+                selectedValue = ui.value
+      }
+        });
+
+        $('<div class="tick ui-widget-content" style="left:200px;"></div>').appendTo(slider);
+    $('<div class="tick ui-widget-content" style="left:400px;"></div>').appendTo(slider);
+    $('<div class="tick ui-widget-content" style="left:600px;"></div>').appendTo(slider);
+    slider.find(".tick:first").css("border-left", "none");
+    slider.find(".ui-slider-handle").css("opacity", 0.8);
+    slider.find(".ui-slider-handle").removeClass("ui-corner-all");
+    slider.removeClass("ui-corner-all");
+    });
+
+</script>
+
+<div class="highlight-box">
+<table border="0" bordercolor="red" id="main_table" width="837">
+  <tbody>
+  </tbody>
+</table>
+</div>
+
+<table border="0" bordercolor="black">
+  <tbody>
+    <tr>
+      <td align="center">
+      <table border="0" bordercolor="green" cellpadding="15" cellspacing="0" id="other_table" width="100%">
+        <tbody>
+          <tr>
+            <td id="done">
+            <p>HIT ini terdiri dari 100 soal yang berbeda. Anda telah menyelesaikan 0. Jika Anda menyelesaikannya dengan baik (memenuhi kriteria quality control kami berdasarkan soal-soal yang telah teranotasi dan tertanam di dalam HIT), Anda akan menerima bonus $8.</p>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+            <p><a target="_blank" href="https://docs.google.com/document/d/e/2PACX-1vQLJeQNK8odSP_AhtK2zgfUMi4VW2eBfY_T-kfPfNm-Fcdfgg06NRqEtkmMWDSDtmzRDiYARJ-SMOIL/pub">Perhatikan beberapa contoh pengerjaan untuk task ini (tersedia dalam bahasa inggris)</a>.  Setidaknya Anda menggunakan waktu 50 menit untuk menyelesaikan HIT ini.</p>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" id="rate">
+            <p><b>Berapa banyak informasi yang ada pada teks berwarna hitam juga bisa ditemukan pada teks berwarna abu-abu?</b></p>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" width="100%">
+            <table>
+              <tbody>
+                <tr>
+                  <td>
+                  <table border="1" bordercolor="lightpink" cellpadding="20" cellspacing="0">
+                    <tbody>
+                      <tr>
+                        <td>
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td align="center" id="question_cell" width="100%"><img alt="" border="0" id="ref_pic" src="" /></td>
+                            </tr>
+                            <tr>
+                              <td align="center" width="100%"><img alt="" border="0" id="question_pic" src="" /></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <table border="0" bordercolor="blue" cellpadding="10" cellspacing="0" id="slider_table" width="100%">
+              <tbody>
+                <tr>
+                  <td colspan="2">
+                  <table align="center">
+                    <tbody>
+                      <tr id="rSlider">
+                        <td align="center" width="100">0 %</td>
+                        <td>
+                        <div id="slider" style="width: 800px; height: 20px; text-align: center; float: left;">&nbsp;</div>
+                        </td>
+                        <td align="center" width="100">100 %</td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                  <table border="0" bordercolor="green" width="100%">
+                    <tbody>
+                      <tr>
+                        <td align="right" id="next_button"><input class="flatButton" onclick="nextQuestion()" type="button" value="NEXT" /></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><input id="amount" type="hidden" /></p>
+
+      <p><input id="final_answer" name="Q1" type="hidden" /></p>
+      <script type="text/javascript" language="javascript">
+
+var texts = [${text_0}, ${text_1}, ${text_2}, ${text_3}, ${text_4}, ${text_5}, ${text_6}, ${text_7}, ${text_8}, ${text_9}, ${text_10}, ${text_11}, ${text_12}, ${text_13}, ${text_14}, ${text_15}, ${text_16}, ${text_17}, ${text_18}, ${text_19}, ${text_20}, ${text_21}, ${text_22}, ${text_23}, ${text_24}, ${text_25}, ${text_26}, ${text_27}, ${text_28}, ${text_29}, ${text_30}, ${text_31}, ${text_32}, ${text_33}, ${text_34}, ${text_35}, ${text_36}, ${text_37}, ${text_38}, ${text_39}, ${text_40}, ${text_41}, ${text_42}, ${text_43}, ${text_44}, ${text_45}, ${text_46}, ${text_47}, ${text_48}, ${text_49}, ${text_50}, ${text_51}, ${text_52}, ${text_53}, ${text_54}, ${text_55}, ${text_56}, ${text_57}, ${text_58}, ${text_59}, ${text_60}, ${text_61}, ${text_62}, ${text_63}, ${text_64}, ${text_65}, ${text_66}, ${text_67}, ${text_68}, ${text_69}, ${text_70}, ${text_71}, ${text_72}, ${text_73}, ${text_74}, ${text_75}, ${text_76}, ${text_77}, ${text_78}, ${text_79}, ${text_80}, ${text_81}, ${text_82}, ${text_83}, ${text_84}, ${text_85}, ${text_86}, ${text_87}, ${text_88}, ${text_89}, ${text_90}, ${text_91}, ${text_92}, ${text_93}, ${text_94}, ${text_95}, ${text_96}, ${text_97}, ${text_98}, ${text_99}];
+
+var ans = "";
+var index = 0;
+var qid = order[index];
+var text = texts[qid];
+var url_src = "https://raw.githubusercontent.com/fajri91/eval_picts/master/MLSumEval/ID/src/" + text + ".png";
+var url_tgt = "https://raw.githubusercontent.com/fajri91/eval_picts/master/MLSumEval/ID/tgt/" + text + ".png";
+
+document.getElementById("ref_pic").src = url_src;
+document.getElementById("question_pic").src = url_tgt;
+document.getElementById('done').innerHTML = "HIT ini terdiri dari 100 soal yang berbeda. Anda telah menyelesaikan "+index+". Jika Anda menyelesaikannya dengan baik (memenuhi kriteria quality control kami berdasarkan soal-soal yang telah teranotasi dan tertanam di dalam HIT), Anda akan menerima bonus $8.";
+
+function nextQuestion(){
+
+  var a = text+"__"+index+"__"+document.getElementById("amount").value;
+
+  if( index == 0 ){
+    ans = a;
+  }else{
+    ans += "|"+a;
+  }
+
+  // move to next question
+  index++;
+  qid = order[index];
+  text = texts[qid];
+
+  var url_src = "https://raw.githubusercontent.com/fajri91/eval_picts/master/MLSumEval/ID/src/" + text + ".png";
+  var url_tgt = "https://raw.githubusercontent.com/fajri91/eval_picts/master/MLSumEval/ID/tgt/" + text + ".png";
+
+  document.getElementById('done').innerHTML = "<span style='font-family: Arial;'>HIT ini terdiri dari 100 soal yang berbeda. Anda telah menyelesaikan "+index+". Jika Anda menyelesaikannya dengan baik (memenuhi kriteria quality control kami berdasarkan soal-soal yang telah teranotasi dan tertanam di dalam HIT), Anda akan menerima bonus $8.</span>";
+  document.getElementById("ref_pic").src = url_src;
+  document.getElementById("question_pic").src = url_tgt;
+
+  $("#slider").slider('value', 0);
+  $('#amount').val(0);
+
+  if( index == texts.length ){
+
+    document.getElementById('final_answer').value = ""+ans;
+    document.getElementById("main_table").innerHTML = "<tbody><div><p>You have completed all 100 assessments.</p> <p> Please press the <b>\"Submit\"</b> button below to submit the HIT. Thank you for your participation.</p> <p>You can leave feedback here if you wish:</p></div><textarea name=\"comments\" cols=110 rows=10></textarea></tbody>"
+    document.getElementById('other_table').innerHTML = "";
+    document.getElementById('slider_table').innerHTML = "";
+  //document.getElementById("submitButton").disabled = false;
+  }
+}
+
+function validateForm(){
+  if( index == 100 ){
+     return true;
+  }else{
+     alert("Press \"Next\"");
+     return false;
+  }
+}
+
+</script></td>
+    </tr>
+  </tbody>
+</table>
+
+
