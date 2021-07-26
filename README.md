@@ -7,7 +7,7 @@ systematically quantify their panlinguistic efficacy. We take a summarization co
 annotate generated summaries for focus (precision) and coverage (recall).
 
 ## Paper
-Fajri Koto, Jey Han Lau, and Timothy Baldwin. [_Evaluating the Efficacy of Summarization Evaluation across Languages_](https://arxiv.org/pdf/2106.01478.pdf). 
+Fajri Koto, Jey Han Lau, and Timothy Baldwin. [_Evaluating the Efficacy of Summarization Evaluation across Languages_](https://aclanthology.org/2021.findings-acl.71.pdf). 
 In Findings of the Association for Computational Linguistics: ACL-IJCNLP 2021.
 
 ## Focus and Coverage
